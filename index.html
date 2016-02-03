@@ -58,8 +58,8 @@
 
                 <h3>Rules</h3>
                 <ul>
-                    <li ng-repeat="rule in rules">
-                        {{ rule.rulename }}
+                    <li ng-repeat="(key, value) in rules">
+                        {{ key + ':' + value }}
                     </li>
                 </ul>
 
