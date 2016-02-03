@@ -1,14 +1,24 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', ['$scope', '$log', '$timeout',
-  function($scope, $log, $timeout) {
+myApp.controller('mainController', ['$scope', '$log', '$timeout', '$filter',
+  function($scope, $log, $timeout, $filter) {
 
-    $scope.name = 'Dan';
+    /*
+     * Scope and Interpolation/Use of $timeout
 
-    $timeout(function(){
+      $scope.name = 'Dan';
 
-      $scope.name = 'Everybody';
+      $timeout(function(){
 
-    }, 3000);
+        $scope.name = 'Everybody';
+
+      }, 3000);
+    */
+
+    // Directives
+    $scope.handle = '';
+    $scope.lowercasehandle = function(){
+      return $filter('lowercase')($scope.handle);
+    }
 
 }]);
