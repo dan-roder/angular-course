@@ -21,4 +21,19 @@ myApp.controller('mainController', ['$scope', '$log', '$timeout', '$filter',
       return $filter('lowercase')($scope.handle);
     }
 
+    $scope.$watch('handle', function(newValue, oldValue) {
+
+      $log.info('Changed');
+      $log.log('Old: ' + oldValue);
+      $log.log('New:' + newValue);
+
+    });
+
+    $timeout(function(){
+
+      $scope.handle = 'newtwitterhandle';
+      $log.log('Scope changed');
+
+    }, 3000);
+
 }]);
