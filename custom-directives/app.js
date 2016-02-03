@@ -34,26 +34,32 @@ myApp.service('nameService', function(){
 myApp.controller('mainController', ['$scope', '$log', '$location', 'nameService',
   function($scope, $log, $location, nameService) {
 
-    $scope.name = nameService.name;
-
-    $scope.$watch('name', function () {
-      nameService.name = $scope.name;
-    })
-
-    $log.log(nameService.name);
-    $log.log(nameService.namelength());
 
 }]);
 
 myApp.controller('secondController', ['$scope', '$log', '$location', '$routeParams', 'nameService',
   function($scope, $log, $location, $routeParams, nameService) {
 
-    $scope.num = $routeParams.num || 1;
 
-    $scope.name = nameService.name;
-
-    $scope.$watch('name', function () {
-      nameService.name = $scope.name;
-    })
 
 }]);
+
+myApp.directive('searchResult', function(){
+  // Runs during compile
+  return {
+    restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+    replace: true,
+    templateUrl: 'directives/searchresult.html',
+    // name: '',
+    // priority: 1,
+    // terminal: true,
+    // scope: {}, // {} = isolate, true = child, false/undefined = no change
+    // controller: function($scope, $element, $attrs, $transclude) {},
+    // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+    // transclude: true,
+    // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+    link: function($scope, iElm, iAttrs, controller) {
+
+    }
+  };
+});
