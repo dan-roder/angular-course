@@ -20,20 +20,15 @@ myApp.config(function($routeProvider) {
 
 myApp.service('nameService', function(){
 
-  var self = this;
-  this.name = 'John Doe';
-
-  this.namelength = function(){
-
-    return self.name.length;
-
-  }
-
 });
 
 myApp.controller('mainController', ['$scope', '$log', '$location', 'nameService',
   function($scope, $log, $location, nameService) {
 
+    $scope.person = {
+      name: 'Big ol bag a dicks',
+      address: 'Somewhere where dicks are'
+    };
 
 }]);
 
@@ -44,16 +39,16 @@ myApp.controller('secondController', ['$scope', '$log', '$location', '$routePara
 
 }]);
 
-myApp.directive('searchResult', function(){
+myApp.directive('listResults', function(){
   // Runs during compile
   return {
     restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
     replace: true,
-    templateUrl: 'directives/searchresult.html',
+    templateUrl: 'directives/listresults.html',
+    scope: {}, // {} = isolate, true = child, false/undefined = no change
     // name: '',
     // priority: 1,
     // terminal: true,
-    // scope: {}, // {} = isolate, true = child, false/undefined = no change
     // controller: function($scope, $element, $attrs, $transclude) {},
     // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
     // transclude: true,
