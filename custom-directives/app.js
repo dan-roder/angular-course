@@ -39,13 +39,15 @@ myApp.controller('secondController', ['$scope', '$log', '$location', '$routePara
 
 }]);
 
-myApp.directive('listResults', function(){
+myApp.directive('searchResult', function(){
   // Runs during compile
   return {
-    restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+    restrict: 'AECM', // E = Element, A = Attribute, C = Class, M = Comment
     replace: true,
-    templateUrl: 'directives/listresults.html',
-    scope: {}, // {} = isolate, true = child, false/undefined = no change
+    templateUrl: 'directives/searchresult.html',
+    scope: {
+      personObject: "="
+    }, // {} = isolate, true = child, false/undefined = no change
     // name: '',
     // priority: 1,
     // terminal: true,
